@@ -1,24 +1,28 @@
 #!/usr/bin/env bash
-#
-# katharinegillis/quasar ellipsis package
 
-# The following hooks can be defined to customize behavior of your package:
-# pkg.install() {
-#     fs.link_files $PKG_PATH
-# }
+pkg.link() {
+    fs.link_files $PKG_PATH/files
+}
 
-# pkg.push() {
-#     git.push
-# }
+pkg.install() {
+    # Set up quasar
+    bash $PKG_PATH/run.sh "$ELLIPSIS_SRC"
+}
 
-# pkg.pull() {
-#     git.pull
-# }
+pkg.pull() {
+    # Check for updates on git
+    git remote update 2>&1 > /dev/null
+    if git.is_behind; then
+        # Unlink old files
+        hooks.unlink
 
-# pkg.installed() {
-#     git.status
-# }
-#
-# pkg.status() {
-#     git.diffstat
-# }
+        # Pull changes from git
+        git.pull
+
+        # Link new files
+        pkg.link
+    fi
+
+    # Set up quasar
+    bash $PKG_PATH/run.sh "$ELLIPSIS_SRC"
+}

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Set up aliases for the common commands
+alias dquasar="docker run --rm -it --name node -v \$PWD:/app -w /app registry.ops.katiecordescodes.com/quasar quasar"
+
+alias quasar="dquasar"
