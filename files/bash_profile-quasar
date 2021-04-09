@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Set up aliases for the common commands
-alias dquasar="docker run --rm -it --name quasar -v \$PWD:/app -w /app -p \"8080:8080\" registry.ops.katiecordescodes.com/quasar quasar"
+alias dquasar="docker run --rm -it -v \$PWD:/app -w /app -p \"8080:8080\" registry.ops.katiecordescodes.com/quasar quasar"
 
 alias quasar="dquasar"
 
-alias dnode12="docker run --rm -it --name node -v \$PWD:/app -w /app node:12 node"
-alias dnpm12="docker run --rm -it --name node -v \$PWD:/app -w /app node:12 npm"
-alias dyarn12="docker run --rm -it --name node -v \$PWD:/app -w /app node:12 yarn"
-alias dnpx12="docker run --rm -it --name node -v \$PWD:/app -w /app node:12 npx"
+alias dnode12="docker run --rm -it -v \$PWD:/app -w /app node:12 node"
+alias dnpm12="docker run --rm -it -v \$PWD:/app -w /app node:12 npm"
+alias dyarn12="docker run --rm -it -v \$PWD:/app -w /app node:12 yarn"
+alias dnpx12="docker run --rm -it -v \$PWD:/app -w /app node:12 npx"
 
 alias npm12="dnpm12"
 alias npx12="dnpx12"
