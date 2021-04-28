@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set up aliases for the common commands
-alias dquasar="docker run --rm -it -v \$PWD:/app -w /app -p \"8080:8080\" registry.ops.katiecordescodes.com/quasar quasar"
+alias dquasar="docker run --rm -it --init -v \$PWD:/app -w /app -p \"8080:8080\" registry.ops.katiecordescodes.com/quasar quasar"
 
 alias quasar="dquasar"
 
