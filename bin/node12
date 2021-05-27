@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+TERMINAL_OPTIONS="-i"
+
+if [ -t 0 ]
+then
+  TERMINAL_OPTIONS="${TERMINAL_OPTIONS}t"
+fi
+
+docker run --rm "$TERMINAL_OPTIONS" -v "$PWD:/app" -w /app node:12 node "$@"

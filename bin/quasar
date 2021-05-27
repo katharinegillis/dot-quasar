@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+TERMINAL_OPTIONS="-i"
+
+if [ -t 0 ]
+then
+  TERMINAL_OPTIONS="${TERMINAL_OPTIONS}t"
+fi
+
+docker run --rm "$TERMINAL_OPTIONS" --init -v "$PWD:/app" -w /app -p "8080:8080" registry.ops.katiecordescodes.com/quasar quasar "$@"
